@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Nishi 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle, #ffe0ec, #ffc1d3);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 40px;
+      text-align: center;
+      max-width: 400px;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #ff4b91;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background: #ff4b91;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .love-message {
+      display: none;
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #ff4b91;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .kiss {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      animation: floatKiss 5s linear infinite;
+    }
+
+    @keyframes floatKiss {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey Nishi! 💕</h1>
+    <p>You make my world so beautiful! 🌟<br>Will you be my baby forever?</p>
+    <button onclick="showLove()">Yes 💖</button>
+  </div>
+
+  <div class="love-message" id="loveMessage">I Love You Nishi Baby 💋</div>
+
+  <script>
+    function showLove() {
+      document.querySelector('.card').style.display = 'none';
+      const loveMessage = document.getElementById('loveMessage');
+      loveMessage.style.display = 'block';
+      createKisses();
+    }
+
+    function createKisses() {
+      for (let i = 0; i < 50; i++) {
+        const kiss = document.createElement('div');
+        kiss.className = 'kiss';
+        kiss.innerHTML = '💋';
+        kiss.style.left = Math.random() * 100 + 'vw';
+        kiss.style.bottom = '-50px';
+        kiss.style.fontSize = Math.random() * 20 + 20 + 'px';
+        kiss.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        document.body.appendChild(kiss);
+
+        setTimeout(() => {
+          kiss.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>
